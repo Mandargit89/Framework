@@ -4,9 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
+
 
 public class baseClass 
 {
@@ -17,21 +18,22 @@ public WebDriver initializeDriver() throws IOException
   {
 	
 	Properties prop=new Properties();
-	FileInputStream fis=new FileInputStream("D:\\mandar_new\\E2EProjectTest\\src\\main\\java\\Resources\\data.properties");
+	FileInputStream fis=new FileInputStream("C:\\Users\\Mandar\\git\\Framework\\E2EProjectTest\\src\\main\\java\\Resources\\data.properties");
 	prop.load(fis);
 	String browserName=prop.getProperty("browser");
 	
 	if(browserName.equals("chrome"))
 	{
 		
-		System.setProperty("webdriver.chrome.driver","D:\\mandar_new\\ChromeDriver\\ChromeDriver77.0.3865.40\\chromedriver.exe");
-		driver=new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver","D:\\mandar_new\\ChromeDriver\\ChromeDriver79\\chromedriver.exe");
+	      driver=new ChromeDriver();
+		
 	}
 	
 	else if (browserName.equals("Firefox"))
 	{
 		//launch firefox 
-		
+		//driver=new FirefoxDriver();
 	}
 	
 	else if (browserName.equals("IE"))
